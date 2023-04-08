@@ -190,4 +190,8 @@ footer a:active {
     nav input {
         width: 70vw;
     }
+
+    .hourForecast li {
+        width: 45vw;
+    }
 }
