@@ -46,7 +46,7 @@ $data = json_decode($response, true);
 
 if(!isset($data['forecast'])) {
 
-    echo "No city was found!";
+    echo "<p style='text-shadow: none; color: black;'>No city was found!";
 
 } else if ($_GET['dt'] < $today) { 
 
