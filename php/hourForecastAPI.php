@@ -43,11 +43,12 @@ curl_close($ch);
 
 //decode the data from $response
 $data = json_decode($response, true);
-
-
+if (!isset($data["forecast"]["forecastday"][0])) {
+    echo " ";
+} else {
 $forecast = $data["forecast"]["forecastday"][0];
 foreach($forecast['hour'] as $hour) {
-        
+
     echo "<ul>";
     echo "<li>".$hour['time']."</li>";
     echo "<li style='display: flex; align-items: center; align-content: center; justify-content: flex-start;'>Vremea:".$hour['condition']['text']."<img src='".$hour['condition']['icon']."' alt=''></li>";
@@ -61,6 +62,6 @@ foreach($forecast['hour'] as $hour) {
     echo "<li>Sanse de ploaie: ".$hour['chance_of_rain']."</li>";
     echo "<li>Sanse de zapada: ".$hour['chance_of_snow']."</li>";
     echo "</ul>";
-    }
-
+}
+}
 ?>
