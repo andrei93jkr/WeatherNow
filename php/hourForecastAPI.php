@@ -5,7 +5,7 @@ $endpoint_url = "http://api.weatherapi.com/v1/forecast.json";
 //set the location from $_GET
 $citylocation = $_GET['q'];
 //get todays date
-$today = date('Y-m-d');
+$today = $_GET['dt'];
 //get the date picked from ui
 $datePicked = date('Y-m-d', strtotime($_GET['dt']));
 //define the 7th day from today
