@@ -5,7 +5,7 @@ $endpoint_url = "http://api.weatherapi.com/v1/forecast.json";
 //set the location from $_GET
 $citylocation = $_GET['q'];
 //get todays date
-$today = $_GET['dt'];
+$today = date('Y-m-d');
 //get the date picked from ui
 $datePicked = date('Y-m-d', strtotime($_GET['dt']));
 //define the 7th day from today
@@ -17,7 +17,7 @@ $params = array(
     "key" => "b4e003afb03746ba80a200219230504",
     "q" => $citylocation,
     "days" => "7",
-    "dt" => $today
+    "dt" => $datePicked
 );
 
 //append the parameters to endpoint url
@@ -48,7 +48,7 @@ if(!isset($data['forecast'])) {
 
     echo "<p style='text-shadow: none; color: black;'>No city was found!";
 
-} else if ($_GET['dt'] < $today) { 
+} else if ($datePicked < $today) { 
 
     echo "<p style='color: black;'>Nu se pot cauta zile in trecut</p>";
      
